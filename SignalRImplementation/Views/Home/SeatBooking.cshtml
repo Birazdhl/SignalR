@@ -1,0 +1,120 @@
+﻿@model List<SignalRImplementation.Models.SeatBooking>
+
+@{
+    ViewData["Title"] = "SeatBooking";
+}
+
+<h1>SeatBooking</h1>
+
+<div id="main">
+    @foreach (var item in Model)
+    {
+        if (String.IsNullOrEmpty(item.Name))
+        {
+            <div id="@item.Id" class="seatNumber seats">
+                @item.Id
+            </div>
+        }
+        else
+        {
+            <div id="@item.Id" class="bookSeatNumber seats">
+                @item.Id
+            </div>
+        }
+    }
+</div>
+<div>
+    <button id="bookBotton" style="background: #35B9ED; color: white; border: 0px; border-radius: 15px; margin-top: 10px; width:88px;">Book Now</button>
+    <div>
+        <button id="resetButton" style="background: red; color: white; border: 0px; border-radius: 15px; margin-top: -24px; width:88px; display:flex; margin-left:100px">Reset Seat</button>
+    </div>
+</div>
+
+<style>
+    #main {
+        width: 153px;
+        height: 351px;
+        border: 1px solid #c3c3c3;
+        display: flex;
+        flex-flow: row wrap;
+        text-align: center;
+    }
+
+        #main div {
+            width: 50px;
+            height: 50px;
+        }
+
+    .seatNumber {
+        background: green;
+        padding: 1px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid;
+        cursor: pointer;
+    }
+
+    .bookSeatNumber {
+        background: red;
+        padding: 1px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid;
+        cursor: pointer;
+    }
+
+    .onHoldBooking {
+        background: orange;
+        padding: 1px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid;
+        cursor: pointer;
+    }
+</style>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+<script>
+    var ToBeReserve = [];
+
+        $("body").on('click', '.seatNumber', function () {
+            var id = $(this).attr('id');
+            $(".seats#" + id).toggleClass("onHoldBooking");
+
+            if (ToBeReserve.includes(+id)) {
+                const index = ToBeReserve.indexOf(+id)
+                if (index > -1) {
+                    ToBeReserve.splice(index, 1);
+                }
+            }
+            else {
+                ToBeReserve.push(+id);
+            }
+            console.log(ToBeReserve);
+    });
+
+    $("body").on('click', '.bookSeatNumber', function () {
+        alert("This Seat is Already Booked");
+    });
+
+    $('#bookBotton').click(function () {
+        var reserveSeats = ToBeReserve.join();
+        var url = "@Url.Action("UpdateSeatBooking", "Home", new { ids = 9999 })";
+        if (reserveSeats === "") {
+            alert("Select Some Value");
+        }
+        else {
+            window.location.replace(url.replace(9999, reserveSeats));
+        }
+    });
+
+    $('#resetButton').click(function () {
+        var url = "@Url.Action("ResetAllBooking", "Home")";
+        window.location.replace(url);
+    });
+</script>
+<script src="~/js/signalr/dist/browser/signalr.js"></script>
+<script src="~/js/chat.js"></script>

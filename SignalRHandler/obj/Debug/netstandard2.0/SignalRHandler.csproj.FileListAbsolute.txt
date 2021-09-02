@@ -1,0 +1,9 @@
+C:\Users\insight\source\repos\SignalRImplementation\SignalRHandler\bin\Debug\netstandard2.0\SignalRHandler.deps.json
+C:\Users\insight\source\repos\SignalRImplementation\SignalRHandler\bin\Debug\netstandard2.0\SignalRHandler.dll
+C:\Users\insight\source\repos\SignalRImplementation\SignalRHandler\bin\Debug\netstandard2.0\SignalRHandler.pdb
+C:\Users\insight\source\repos\SignalRImplementation\SignalRHandler\obj\Debug\netstandard2.0\SignalRHandler.csprojAssemblyReference.cache
+C:\Users\insight\source\repos\SignalRImplementation\SignalRHandler\obj\Debug\netstandard2.0\SignalRHandler.AssemblyInfoInputs.cache
+C:\Users\insight\source\repos\SignalRImplementation\SignalRHandler\obj\Debug\netstandard2.0\SignalRHandler.AssemblyInfo.cs
+C:\Users\insight\source\repos\SignalRImplementation\SignalRHandler\obj\Debug\netstandard2.0\SignalRHandler.csproj.CoreCompileInputs.cache
+C:\Users\insight\source\repos\SignalRImplementation\SignalRHandler\obj\Debug\netstandard2.0\SignalRHandler.dll
+C:\Users\insight\source\repos\SignalRImplementation\SignalRHandler\obj\Debug\netstandard2.0\SignalRHandler.pdb
